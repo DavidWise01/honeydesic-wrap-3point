@@ -1,0 +1,16 @@
+{
+  "target_stability_zone": {
+    "lower": 0.82,
+    "upper": 0.93,
+    "meaning": "stable adaptive; below 0.82 is too loose, above 0.93 becomes rigid"
+  },
+  "center": "gravity well x27 pulsating",
+  "pulses": 27,
+  "function": [
+    "pull unstable branches inward",
+    "pulse through 27 local propagation states",
+    "reduce hard lock by oscillating the center attractor",
+    "keep identity without freezing adaptation"
+  ],
+  "rule": "center_pull = gravity_strength * pulse_envelope * branch_alignment"
+}

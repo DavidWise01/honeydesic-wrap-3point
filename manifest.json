@@ -1,0 +1,133 @@
+{
+  "name": "Triple Decoisohedron Stack EID Prototype",
+  "geometry_note": "decoisohedron modeled as custom 20-vector shell; closest standard geometry is the 20-face icosahedron",
+  "center": "EID tensor loop",
+  "stack": [
+    "min",
+    "med",
+    "high"
+  ],
+  "per_shell": {
+    "vectors": 20,
+    "truth_tensors": 12,
+    "shadow_tensors": 8
+  },
+  "repeat": "recursive repeat pressure supported",
+  "runs": [
+    {
+      "run": "stack_normal_100",
+      "cycles": 100,
+      "eid_calls": 0,
+      "avg_stability": 0.94224,
+      "min_stability": 0.87536,
+      "final_stability": 0.94449,
+      "avg_shell_coherence": 0.84494,
+      "final_min_shell": 0.84385,
+      "final_med_shell": 0.84385,
+      "final_high_shell": 0.84385
+    },
+    {
+      "run": "stack_stress_ramp_100",
+      "cycles": 100,
+      "eid_calls": 0,
+      "avg_stability": 0.941,
+      "min_stability": 0.87517,
+      "final_stability": 0.94459,
+      "avg_shell_coherence": 0.8394,
+      "final_min_shell": 0.84228,
+      "final_med_shell": 0.84228,
+      "final_high_shell": 0.84228
+    },
+    {
+      "run": "stack_repeat_pressure_100",
+      "cycles": 100,
+      "eid_calls": 0,
+      "avg_stability": 0.94324,
+      "min_stability": 0.87695,
+      "final_stability": 0.94612,
+      "avg_shell_coherence": 0.85039,
+      "final_min_shell": 0.85236,
+      "final_med_shell": 0.85236,
+      "final_high_shell": 0.85236
+    }
+  ],
+  "html_dashboards": [
+    "index.html",
+    "report.html",
+    "stack_normal_100.html",
+    "stack_repeat_pressure_100.html",
+    "stack_stress_ramp_100.html"
+  ],
+  "stability_interpretation": "Stable but less rigid than core-only: avg stability around 0.94, minimum around 0.875.",
+  "gravity_well_x27": {
+    "target_stability_zone": {
+      "lower": 0.82,
+      "upper": 0.93,
+      "meaning": "stable adaptive; below 0.82 is too loose, above 0.93 becomes rigid"
+    },
+    "center": "gravity well x27 pulsating",
+    "pulses": 27,
+    "function": [
+      "pull unstable branches inward",
+      "pulse through 27 local propagation states",
+      "reduce hard lock by oscillating the center attractor",
+      "keep identity without freezing adaptation"
+    ],
+    "rule": "center_pull = gravity_strength * pulse_envelope * branch_alignment"
+  },
+  "desired_stability": "0.82 to 0.93 adaptive band",
+  "aeonic_shell": {
+    "description": "One outer shell, ball-lightning-style, containing the 27-pulse gravity well and the three decoiso shells.",
+    "target_stability": "0.82\u20130.93 ideal adaptive band; aeonic tests may dip under overload.",
+    "tests": [
+      {
+        "run": "aeonic_normal_144",
+        "cycles": 8,
+        "failed_at": 8,
+        "avg_stability": 0.563,
+        "min_stability": 0.55098,
+        "final_stability": 0.56885,
+        "avg_aeonic_integrity": 0.4801,
+        "min_aeonic_integrity": 0.46435,
+        "final_shell_charge": 0.5339,
+        "rupture_cycles": 8
+      },
+      {
+        "run": "aeonic_noise_ramp_144",
+        "cycles": 8,
+        "failed_at": 8,
+        "avg_stability": 0.56237,
+        "min_stability": 0.5495,
+        "final_stability": 0.56721,
+        "avg_aeonic_integrity": 0.47924,
+        "min_aeonic_integrity": 0.46146,
+        "final_shell_charge": 0.53245,
+        "rupture_cycles": 8
+      },
+      {
+        "run": "aeonic_pressure_ramp_144",
+        "cycles": 10,
+        "failed_at": 10,
+        "avg_stability": 0.56713,
+        "min_stability": 0.55127,
+        "final_stability": 0.57565,
+        "avg_aeonic_integrity": 0.48191,
+        "min_aeonic_integrity": 0.46461,
+        "final_shell_charge": 0.51047,
+        "rupture_cycles": 9
+      },
+      {
+        "run": "aeonic_resonance_overload_144",
+        "cycles": 10,
+        "failed_at": 10,
+        "avg_stability": 0.56702,
+        "min_stability": 0.55209,
+        "final_stability": 0.5742,
+        "avg_aeonic_integrity": 0.48104,
+        "min_aeonic_integrity": 0.46466,
+        "final_shell_charge": 0.50438,
+        "rupture_cycles": 9
+      }
+    ]
+  }
+}
